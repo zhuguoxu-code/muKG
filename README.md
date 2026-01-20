@@ -200,6 +200,12 @@ python main_args.py -t lp -m transe -o train -d data/FB15K
 | RESCAL | [Nickel *et al.*, 2011](http://www.cip.ifi.lmu.de/~nickel/data/paper-icml2011.pdf) |
 | HolE   | [Nickel *et al.*, 2016](https://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/viewFile/12484/11828) |
 
+### Recommendation models
+
+| Name      | Citation                                                                                                    |
+| --------- |-------------------------------------------------------------------------------------------------------------|
+| KGCN      | [Hongwei Wang et al.*, 2019](https://dl.acm.org/doi/epdf/10.1145/3308558.3313417)                                      |
+
 ## Datasets hub 🏠
 
 μKG has bulit in 16 KG datasets for different downstream tasks. Here we list the number of entities, relations, train triples, valid triples and test triples for these datasets. You can prepare your own datasets in the Datasets hub. Firstly, you should create a subfolder `dataset name` in the `data` folder, then put your train.txt, valid.txt and test.txt files in this folder. The data should be in the triple format.
