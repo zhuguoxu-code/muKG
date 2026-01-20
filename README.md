@@ -238,7 +238,11 @@ python main_args.py -t lp -m transe -o train -d data/FB15K
 | ------------- | -------- | --------- | ------- | ----- | ------------------------------------------------------------ |
 | FB15K-ET      | 15000    | 248       | 38265   | 3851  | [Moon *et al*., 2017](https://persagen.com/files/misc/Moon2017Learning.pdf) |
 
+### Recommendation datasets
 
+| Datasets name | Entities | Relations | Triples | Types | Citation                                                     |
+| ------------- | -------- | --------- | ------- | ----- | ------------------------------------------------------------ |
+| Last.FM       |  9366    |  60       |  15518  | #     | [Moon *et al*., 2017](https://persagen.com/files/misc/Moon2017Learning.pdf) |
 
 
 ## Utils 📂
