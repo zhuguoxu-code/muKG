@@ -36,27 +36,21 @@
 
 ### Overview 
 
-We use  [Python](https://www.python.org/) ,  [Tensorflow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/) to develop the basic framework of **μKG**.  And using [RAY](https://www.ray.io/) for distributed training. The software architecture is illustrated in the following Figure. 
+We use  [Python](https://www.python.org/) ,  [Tensorflow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/) to develop the basic framework of **KGR**.  And using [RAY](https://www.ray.io/) for distributed training. The software architecture is illustrated in the following Figure. 
 
-![image-20220507103409697](https://github.com/nju-websoft/muKG/blob/main/figs/system.png)
+![image-20220507103409697](https://github.com/nju-websoft/muKG/blob/main/figs/1.png)
 
 
 Compared with other existing KG systems, μKG has the following competitive features.
 
-👍**Comprehensive.** μKG is a full-featured Python library for representation learning over a single KG or multi-source KGs. It is compatible with the two widely-used deep learning libraries [PyTorch](https://pytorch.org/) and [TensorFlow 2](https://www.tensorflow.org/), and can therefore be easily integrated into downstream applications. It integrates a variety of KG embedding models and supports four KG tasks including link prediction, entity alignment, entity typing, and multi-source link prediction.
-
-⚡**Fast and scalable.** μKG provides advanced implementations of KG embedding techniques with the support of multi-process and multi-GPU parallel computing, making it fast and scalable to large KGs.
-
 🤳**Easy-to-use.** μKG provides simplified pipelines of KG embedding tasks for easy use. Users can interact with μKG with both method APIs and the command line. It also has high-quality documentation.
-
-😀**Continuously updated.** Our team will keep up-to-date on new related techniques and integrate new (multi-source) KG embedding models, tasks, and datasets into μKG. We will also keep improving existing implementations.
 
   
 
 ### 	Package Description
 
 ```
-μKG/
+KGR/
 ├── src/
 │   ├── py/: a Python-based toolkit used for the upper layer of μKG
 		|── data/: a collection of datasets used for knowledge graph reasoning
@@ -94,8 +88,8 @@ We suggest you create a new conda environment firstly.  We provide two installat
 
 ```bash
 # command for Tensorflow
-conda create -n muKG python=3.8
-conda activate muKG
+conda create -n KGR python=3.8
+conda activate KGR
 conda install tensorflow-gpu==2.3.0
 conda install -c conda-forge python-igraph
 pip install -U ray==1.12.0
@@ -105,8 +99,8 @@ To install PyTorch, you must install [Anaconda](https://www.anaconda.com/) and f
 
 ```bash
 # command for PyTorch
-conda create -n muKG python=3.8
-conda activate muKG
+conda create -n KGR python=3.8
+conda activate KGR
 conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
 conda install -c conda-forge python-igraph
 pip install -U ray==1.12.0
@@ -115,14 +109,14 @@ pip install -U ray==1.12.0
 The latest code can be installed by the following instructions:
 
 ```bash
-git clone https://github.com/nju-websoft/muKG.git muKG
+git clone https://github.com/nju-websoft/KGR.git KGR
 cd muKG
 pip install -e .
 ```
 
 ### Usage 📝
 
-Currently, there are two ways to do your job. Here we provide tutorials of using command line as well as editing file to configure your model. The following is an example about how to use μKG in Python. You can choose different tasks, select the specific model and change the mode (training or evaluation) here. The hyperparameter files are stored in the  subfolder `args`. It maintains compelete details for training process.
+Currently, there are two ways to do your job. Here we provide tutorials of using command line as well as editing file to configure your model. The following is an example about how to use KGR in Python. You can choose different tasks, select the specific model and change the mode (training or evaluation) here. The hyperparameter files are stored in the  subfolder `args`. It maintains compelete details for training process.
 
 ```python
 model_name = 'model name'
@@ -157,48 +151,18 @@ python main_args.py -t lp -m transe -o train -d data/FB15K
 
 ## Models hub 🏠
 
-μKG has implemented 26 KG models. The citation for each models corresponds to either the paper describing the model. According to different knowledge graph downstream tasks, we divided the models into three categories. It is available for you to add your own models under one of the three folders.
+1111
 
 ### KGE models
 
 | Name     | Citation                                                                                                                |
 | -------- |-------------------------------------------------------------------------------------------------------------------------|
 | TransE   | [Bordes *et al.*, 2013](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf) |
-| TransR   | [Lin *et al.*, 2015](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/)                           |
-| TransD   | [Ji *et al.*, 2015](http://www.aclweb.org/anthology/P15-1067)                                                           |
-| TransH   | [Wang *et al.*, 2014](https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8531/8546)                          |
-| TuckER   | [Balažević *et al.*, 2019](https://arxiv.org/abs/1901.09590)                                                            |
-| RotatE   | [Sun *et al.*, 2019](https://arxiv.org/abs/1902.10197v1)                                                                |
-| SimplE   | [Kazemi *et al.*, 2018](https://papers.nips.cc/paper/7682-simple-embedding-for-link-prediction-in-knowledge-graphs)     |
-| RESCAL   | [Nickel *et al.*, 2011](http://www.cip.ifi.lmu.de/~nickel/data/paper-icml2011.pdf)                                      |
-| ComplEx  | [Trouillon *et al.*, 2016](https://arxiv.org/abs/1606.06357)                                                            |
-| Analogy  | [Liu *et al.*, 2017](https://arxiv.org/abs/1705.02426)                                                                  |
-| DistMult | [Yang *et al.*, 2014](https://arxiv.org/abs/1412.6575)                                                                  |
-| HolE     | [Nickel *et al.*, 2016](https://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/viewFile/12484/11828)                      |
-| ConvE    | [Dettmers *et al.*, 2018](https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/17366)                              |
-
-### EA models
-
-| Name      | Citation                                                                                                    |
-| --------- |-------------------------------------------------------------------------------------------------------------|
-| MTransE   | [Chen *et al.*, 2017](https://www.ijcai.org/proceedings/2017/0209.pdf)                                      |
-| IPTransE  | [Zhu *et al.*, 2017 ](https://www.ijcai.org/proceedings/2017/0595.pdf)                                      |
-| BootEA    | [Sun *et al.*, 2018](https://www.ijcai.org/proceedings/2018/0611.pdf)                                       |
-| JAPE      | [Sun *et al.*, 2017](https://link.springer.com/chapter/10.1007/978-3-319-68288-4_37)                        |
-| IMUSE     | [He *et al.*, 2019](https://link.springer.com/content/pdf/10.1007%2F978-3-030-18576-3_22.pdf)               |
-| RDGCN     | [Wu *et al.*, 2019](https://www.ijcai.org/proceedings/2019/0733.pdf)                                        |
-| AttrE     | [Trisedya *et al.*, 2019](https://people.eng.unimelb.edu.au/jianzhongq/papers/AAAI2019_EntityAlignment.pdf) |
-| SEA       | [Pei *et al.*, 2019](https://dl.acm.org/citation.cfm?id=3313646)                                            |
-| GCN-Align | [Wang *et al.*, 2018](https://www.aclweb.org/anthology/D18-1032)                                            |
-| RSN4EA    | [Guo *et al.*, 2019](http://proceedings.mlr.press/v97/guo19c/guo19c.pdf)                                    |
-
+| TransR   | [Lin *et al.*, 2015](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9571/9523/)                           
+                           
 ### ET models
 
 | Name   | Citation                                                     |
-| ------ | ------------------------------------------------------------ |
-| TransE | [Bordes *et al.*, 2013](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf) |
-| RESCAL | [Nickel *et al.*, 2011](http://www.cip.ifi.lmu.de/~nickel/data/paper-icml2011.pdf) |
-| HolE   | [Nickel *et al.*, 2016](https://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/viewFile/12484/11828) |
 
 ### Recommendation models
 
@@ -215,28 +179,9 @@ python main_args.py -t lp -m transe -o train -d data/FB15K
 | ------------- | -------- | --------- | ------- | ----- | ------- | ------------------------------------------------------------ |
 | FB15K         | 14951    | 1345      | 483142  | 50000 | 59071   | [Bordes *et al*., 2013](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf) |
 | FB15K237      | 14541    | 237       | 272115  | 17535 | 20466   | [Bordes *et al*., 2013](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf) |
-| WN18RR        | 40943    | 11        | 86835   | 3034  | 3134    | [Toutanova *et al*., 2015](https://www.aclweb.org/anthology/W15-4007/) |
-| WN18          | 40943    | 18        | 141442  | 5000  | 5000    | [Bordes *et al*., 2013](https://arxiv.org/abs/1301.3485)     |
-| WN11          | 38588    | 11        | 112581  | 2609  | 10544   | [Socher *et al*., 2013](https://dl.acm.org/doi/10.5555/2999611.2999715) |
-| DBpedia50     | 49900    | 654       | 23288   | 399   | 10969   | [Shi *et al*., 2017](https://arxiv.org/abs/1711.03438)       |
-| DBpedia500    | 517475   | 654       | 3102677 | 10000 | 1155937 |                                                              |
-| Countries     | 271      | 2         | 1111    | 24    | 24      | [Bouchard *et al*., 2015](https://www.aaai.org/ocs/index.php/SSS/SSS15/paper/view/10257/10026) |
-| FB13          | 75043    | 13        | 316232  | 5908  | 23733   | [Socher *et al*., 2013](https://dl.acm.org/doi/10.5555/2999611.2999715) |
-| Kinsip        | 104      | 25        | 8544    | 1086  | 1074    | [Kemp *et al*., 2006](https://www.aaai.org/Papers/AAAI/2006/AAAI06-061.pdf) |
-| Nations       | 14       | 55        | 1592    | 199   | 201     | [`ZhenfengLei/KGDatasets`](https://github.com/ZhenfengLei/KGDatasets) |
-| NELL-995      | 75492    | 200       | 149678  | 543   | 3992    | [Nathani *et al*., 2019](https://arxiv.org/abs/1906.01195)   |
-| UMLS          | 75492    | 135       | 5216    | 652   | 661     | [`ZhenfengLei/KGDatasets`](https://github.com/ZhenfengLei/KGDatasets) |
-### EA datasets
+                                                 
 
-| Datasets name    | Entities | Relations | Triples | Citation                                                     |
-| ---------------- | -------- | --------- | ------- | ------------------------------------------------------------ |
-| OpenEA supported | 15000    | 248       | 38265   | [Sun *et al*., 2020](http://www.vldb.org/pvldb/vol13/p2326-sun.pdf) |
 
-### ET datasets
-
-| Datasets name | Entities | Relations | Triples | Types | Citation                                                     |
-| ------------- | -------- | --------- | ------- | ----- | ------------------------------------------------------------ |
-| FB15K-ET      | 15000    | 248       | 38265   | 3851  | [Moon *et al*., 2017](https://persagen.com/files/misc/Moon2017Learning.pdf) |
 
 ### Recommendation datasets
 
