@@ -4,7 +4,7 @@ import os
 
 import setuptools
 
-MODULE = 'muKG'
+MODULE = 'KGR'
 VERSION = '1.0'
 PACKAGES = setuptools.find_packages(where='src')
 META_PATH = os.path.join('src', MODULE, '__init__.py')
@@ -29,11 +29,11 @@ if __name__ == '__main__':
         name=MODULE,
         version=VERSION,
         description='An open-source Python library for representation learning over knowledge graphs.',
-        url='https://github.com/nju-websoft/muKG.git',
+        url='https://github.com/nju-websoft/KGR.git',
         author='Zequn Sun',
-        author_email='zqsun.nju@gmail.com',
-        maintainer='Zequn Sun',
-        maintainer_email='zqsun.nju@gmail.com',
+        author_email='z@gmail.com',
+        maintainer='Z',
+        maintainer_email='zu@gmail.com',
         keywords=KEYWORDS,
         packages=setuptools.find_packages(where='src'),
         package_dir={'': 'src'},
