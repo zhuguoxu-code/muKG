@@ -3,12 +3,12 @@
 </div>
 
 
-> **μKG** is an open-source Python library for representation learning over knowledge graphs. μKG supports joint representation learning over multi-source knowledge graphs (and also a single knowledge graph), multiple deep learning libraries (PyTorch and TF2), multiple embedding tasks (link prediction, entity alignment, entity typing, and multi-source link prediction), and multiple parallel computing modes (multi-process and multi-GPU computing).
+> **μKG** is an open-source Python library for representation learning over knowledge graphs. KGR supports joint representation learning over multi-source knowledge graphs (and also a single knowledge graph), multiple deep learning libraries (PyTorch and TF2), multiple embedding tasks (link prediction, entity alignment, entity typing, and multi-source link prediction), and multiple parallel computing modes (multi-process and multi-GPU computing).
 
 
 ## Table of contents
 
-1. [Introduction of μKG 📃](#introduction-of-mukg-)
+1. [Introduction of KGR 📃](#introduction-of-mukg-)
    1. [Overview](#overview)
    2. [Package Description](#package-description)
 2. [Getting Started 🚀](#getting-started-)
@@ -41,7 +41,7 @@ We use  [Python](https://www.python.org/) ,  [Tensorflow](https://www.tensorflow
 ![image-20220507103409697](https://github.com/nju-websoft/muKG/blob/main/figs/1.png)
 
 
-Compared with other existing KG systems, μKG has the following competitive features.
+Compared with other existing KG systems, KGR has the following competitive features.
 
 🤳**Easy-to-use.** μKG provides simplified pipelines of KG embedding tasks for easy use. Users can interact with μKG with both method APIs and the command line. It also has high-quality documentation.
 
