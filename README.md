@@ -1,5 +1,5 @@
 <div align=center>
-<img src="https://github.com/nju-websoft/muKG/blob/main/figs/logo.png" width="375" style="zoom:15%;" />
+<img src="https://github.com/nju-websoft/muKG/blob/main/figs/1.png" width="375" style="zoom:15%;" />
 </div>
 
 
